@@ -62,16 +62,29 @@
   </div>
 
   <script src="passwords.js"></script>
-  <script>
-    function checkPassword() {
-      const input = document.getElementById("password").value.trim();
-      if (validPasswords.includes(input)) {
-        document.getElementById("login-box").style.display = "none";
-        document.getElementById("stream").style.display = "block";
-      } else {
-        document.getElementById("error").textContent = "Invalid password. Try again.";
-      }
+<script>
+  // Check on page load: has the user already used a password in this session?
+  window.onload = () => {
+    if (sessionStorage.getItem("streamAccessGranted") === "true") {
+      document.getElementById("login-container").style.display = "none";
+      document.getElementById("stream-container").style.display = "block";
     }
-  </script>
+  };
+
+  function checkPassword() {
+    const input = document.getElementById("password").value.trim();
+    const index = validPasswords.indexOf(input);
+    const errorDiv = document.getElementById("error");
+
+    if (index !== -1) {
+      sessionStorage.setItem("streamAccessGranted", "true");
+      validPasswords.splice(index, 1); // remove the used password from the array (in memory)
+      document.getElementById("login-container").style.display = "none";
+      document.getElementById("stream-container").style.display = "block";
+    } else {
+      errorDiv.textContent = "❌ Invalid or already-used password.";
+    }
+  }
+</script>
 </body>
 </html>
