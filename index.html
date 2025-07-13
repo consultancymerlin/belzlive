@@ -2,66 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Protected Stream</title>
-  <style>
-    body {
-      background-color: #111;
-      color: white;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    #login-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    input {
-      padding: 10px;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    #error {
-      color: red;
-      margin-top: 10px;
-    }
-    #stream {
-      display: none;
-      width: 100vw;
-      height: 100vh;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Stream Access</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="login-box">
-    <h2>Enter Password to View Stream</h2>
-    <input type="password" id="password" placeholder="Enter password" />
-    <button onclick="checkPassword()">Enter</button>
-    <div id="error"></div>
+  <div id="login-container">
+    <div id="login-box">
+      <h2>🔒 Enter Password to Access Stream</h2>
+      <input type="password" id="password" placeholder="Enter password" />
+      <button onclick="checkPassword()">Access Stream</button>
+      <div id="error"></div>
+    </div>
   </div>
 
-  <div id="stream">
-    <iframe src="https://www.youtube.com/embed/NF046zascc4?autoplay=1&modestbranding=1&rel=0"
+  <div id="stream-container">
+    <iframe src="https://www.youtube.com/embed/NF046zascc4?autoplay=1&rel=0&modestbranding=1"
+            title="YouTube Live Stream"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
     </iframe>
   </div>
-
-  <script src="passwords.js"></script>
+ <script src="passwords.js"></script>
 <script>
   // Check on page load: has the user already used a password in this session?
   window.onload = () => {
@@ -86,5 +48,6 @@
     }
   }
 </script>
+
 </body>
 </html>
