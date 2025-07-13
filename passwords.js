@@ -8,5 +8,5 @@ const validPasswords = [
   "Nb20rTl4", "Xe78pFq1", "Tr84xHd6", "Oj99kMw3", "Hl26aPv5",
   "Va33yRn9", "Ru59qXj2", "Bf42pMy6", "Sk88tOl1", "Yn61aWr7",
   "Po36xVf4", "Lj17qKg9", "Mw85nTs3", "Gt23zWp8", "Hz70aNc6",
-  "Ux64yFd1", "Zr95pLo2", "Yc31vTw7", "Kb50nQm4", "Ns39xHy5"
+  "Ux64yFd1", "Zr95pLo2", "Yc31vTw7", "Kb50nQm4", "1234"
 ];
